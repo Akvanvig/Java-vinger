@@ -30,6 +30,7 @@ class Bord {
         opptatte++;
       }
     }
+    return opptatte;
   }
 
   public boolean reserver(int antBord, String navn) {
