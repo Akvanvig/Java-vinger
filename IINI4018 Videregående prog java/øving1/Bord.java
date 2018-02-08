@@ -43,7 +43,7 @@ class Bord {
   }
 //hehe
   public int[] getReservasjoner(String navn) {
-    List<int> bordReservert = new ArrayList<int>();
+    List<int> bordReservert = new ArrayList();
     for (int i = 0; i < bordene.length; i++ ){
       if (res.equals(bordene[i])) {
         bordReservert.add(i);
