@@ -45,7 +45,7 @@ class Bord {
       return false;
     }
   }
-
+//hehe
   public int[] getReservasjoner(String navn) {
     List<int> bordReservert = new Arraylist<int>();
     for (int i = 0; i < bordene.length; i++ ){
