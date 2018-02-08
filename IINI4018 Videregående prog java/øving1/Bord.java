@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Bord {
   private String[] bordene;
 
@@ -5,17 +7,9 @@ class Bord {
     bordene = new String[antBord];
   }
 
-  public String reservasjon() {
-    return resNavn;
-  }
-
-  public void reserver(String navn) {
-    this.resNavn = navn;
-  }
-
   public int antLedige() {
     int ledige = 0;
-    for (int i = 0; bordene.length - 1; i++) {
+    for (int i = 0; i < bordene.length; i++) {
       if (bordene[i] == null) {
         ledige++;
       }
@@ -25,7 +19,7 @@ class Bord {
 
   public int antOpptatte() {
     int opptatte = 0;
-    for (int i = 0; bordene.length; i++) {
+    for (int i = 0; i < bordene.length; i++) {
       if (bordene[i] == null) {
         opptatte++;
       }
@@ -34,13 +28,14 @@ class Bord {
   }
 
   public boolean reserver(int antBord, String navn) {
-    if (antBord > bordene.length) {
-      for (int i = 0; antBord > i; i++) {
+    if (antBord > antLedige) {
+      for (int i = 0; antBord > 0; i++) {
         if (antBord > 0 && bordene[i] == null) {
           bordene[i] = navn;
           antBord--;
         }
       }
+      return true;
     }
     else {
       return false;
@@ -48,16 +43,20 @@ class Bord {
   }
 //hehe
   public int[] getReservasjoner(String navn) {
-    List<int> bordReservert = new Arraylist<int>();
+    ArrayList<int> bordReservert = new ArrayList<int>();
     for (int i = 0; i < bordene.length; i++ ){
       if (res.equals(bordene[i])) {
-        bordReservert.add();
+        bordReservert.add(i);
       }
     }
     //Gjør arraylisten om til array og returnerer
     int[] reservasjoner = new int[ bordReservert.size() ];
-    where.toArray( reservasjoner );
+    bordReservert.toArray( reservasjoner );
     return reservasjoner;
   }
 
 }
+
+
+//Er det vaskeligere å overtale service/babed folk til å endre vaner?
+  //IT-folk er gode, andre kanskje ikke fullt så medgjørelige :)
