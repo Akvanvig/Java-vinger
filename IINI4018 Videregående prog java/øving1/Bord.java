@@ -1,3 +1,8 @@
+/*
+	Øving 1
+	11.02.2018
+	Anders Kvanvig
+*/
 import java.util.*;
 
 class Bord {
@@ -28,7 +33,7 @@ class Bord {
   }
 
   public boolean reserver(int antBord, String navn) {
-    if (antBord > antLedige()) {
+    if (antBord <= antLedige()) {
       for (int i = 0; antBord > 0; i++) {
         if (antBord > 0 && bordene[i] == null) {
           bordene[i] = navn;
@@ -45,8 +50,9 @@ class Bord {
   public int[] getReservasjoner(String navn) {
     int ant = 0;
     //Går gjennom listen over bord for å se hvor mange bord personen har reservert
-    for (String bordet:bordene) {
-      if (bordet.equals(navn)) {
+    //Hadde en fra starten brukt Arraylist kunne dette vært unngått ettersom en slipper å vite størrelsen når en oppretter variabelen.
+    for (int i = 0; i < bordene.length; i++) {
+      if (bordene[i] != null && bordene[i].equals(navn)) {
         ant++;
       }
     }
@@ -54,7 +60,7 @@ class Bord {
     int[] reservasjoner = new int[ant];
     int i = 0;
     for (int j = 0; j < bordene.length; j++) {
-      if (bordene[j].equals(navn)) {
+      if (bordene[i] != null && bordene[j].equals(navn)) {
         reservasjoner[i] = j;
         i++;
       }
@@ -69,6 +75,10 @@ class Bord {
         bordene[bordnummer[i]] = null;
       }
     }
+  }
+
+  public String[] getBordene() {
+    return bordene;
   }
 
 }

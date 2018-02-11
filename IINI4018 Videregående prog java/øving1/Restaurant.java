@@ -1,3 +1,9 @@
+/*
+	Øving 1
+	11.02.2018
+	Anders Kvanvig
+*/
+
 import java.util.*;
 
 class Restaurant {
@@ -28,15 +34,27 @@ class Restaurant {
     return year - etbAar;
   }
 
-  public int getLedige() {
+  public int antLedige() {
     return bordene.antLedige();
   }
 
-  public int getOpptatte() {
+  public int antOpptatte() {
     return bordene.antOpptatte();
+  }
+
+  public String[] getBordene() {
+    return bordene.getBordene();
   }
 
   public void frigiBord(int[] bordnummer) {
     bordene.frigiBord(bordnummer);
+  }
+
+  public int[] getReservasjoner(String navn) {
+    return bordene.getReservasjoner(navn);
+  }
+
+  public boolean reserver(int antBord, String navn) {
+    return bordene.reserver(antBord, navn);
   }
 }
