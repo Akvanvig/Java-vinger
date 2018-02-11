@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Restaurant {
   private String navn;
   private int etbAar;
@@ -27,12 +29,14 @@ class Restaurant {
   }
 
   public int getLedige() {
-    return bordene.getLedige();
+    return bordene.antLedige();
   }
 
   public int getOpptatte() {
-    return bordene.getOptatte();
+    return bordene.antOpptatte();
   }
 
-
+  public void frigiBord(int[] bordnummer) {
+    bordene.frigiBord(bordnummer);
+  }
 }

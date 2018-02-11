@@ -28,7 +28,7 @@ class Bord {
   }
 
   public boolean reserver(int antBord, String navn) {
-    if (antBord > antLedige) {
+    if (antBord > antLedige()) {
       for (int i = 0; antBord > 0; i++) {
         if (antBord > 0 && bordene[i] == null) {
           bordene[i] = navn;
@@ -41,22 +41,34 @@ class Bord {
       return false;
     }
   }
-//hehe
+
   public int[] getReservasjoner(String navn) {
-    List<int> bordReservert = new ArrayList();
-    for (int i = 0; i < bordene.length; i++ ){
-      if (res.equals(bordene[i])) {
-        bordReservert.add(i);
+    int ant = 0;
+    //Går gjennom listen over bord for å se hvor mange bord personen har reservert
+    for (String bordet:bordene) {
+      if (bordet.equals(navn)) {
+        ant++;
       }
     }
-    //Gjør arraylisten om til array og returnerer
-    int[] reservasjoner = new int[ bordReservert.size() ];
-    bordReservert.toArray( reservasjoner );
+    //Går deretter gjennom og legger bordene det gjelder inn i en array for å returneres
+    int[] reservasjoner = new int[ant];
+    int i = 0;
+    for (int j = 0; j < bordene.length; j++) {
+      if (bordene[j].equals(navn)) {
+        reservasjoner[i] = j;
+        i++;
+      }
+    }
     return reservasjoner;
   }
 
+  public void frigiBord(int[] bordnummer) {
+    //Går gjennom bordnumrene gitt, sjekker om de er gyldige indekser og setter de lik null
+    for (int i = 0; i < bordnummer.length ; i++) {
+      if (bordnummer[i] >= 0 && bordnummer[i] < bordene.length) {
+        bordene[bordnummer[i]] = null;
+      }
+    }
+  }
+
 }
-
-
-//Er det vaskeligere å overtale service/babed folk til å endre vaner?
-  //IT-folk er gode, andre kanskje ikke fullt så medgjørelige :)
