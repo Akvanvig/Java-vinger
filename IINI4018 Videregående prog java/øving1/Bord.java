@@ -1,5 +1,5 @@
 /*
-	Øving 1
+	Ã˜ving 1
 	11.02.2018
 	Anders Kvanvig
 */
@@ -49,14 +49,14 @@ class Bord {
 
   public int[] getReservasjoner(String navn) {
     int ant = 0;
-    //Går gjennom listen over bord for å se hvor mange bord personen har reservert
-    //Hadde en fra starten brukt Arraylist kunne dette vært unngått ettersom en slipper å vite størrelsen når en oppretter variabelen.
+    //Gï¿½r gjennom listen over bord for ï¿½ se hvor mange bord personen har reservert
+    //Hadde en fra starten brukt Arraylist kunne dette vï¿½rt unngï¿½tt ettersom en slipper ï¿½ vite stï¿½rrelsen nï¿½r en oppretter variabelen.
     for (int i = 0; i < bordene.length; i++) {
       if (bordene[i] != null && bordene[i].equals(navn)) {
         ant++;
       }
     }
-    //Går deretter gjennom og legger bordene det gjelder inn i en array for å returneres
+    //Gï¿½r deretter gjennom og legger bordene det gjelder inn i en array for ï¿½ returneres
     int[] reservasjoner = new int[ant];
     int i = 0;
     for (int j = 0; j < bordene.length; j++) {
@@ -69,7 +69,7 @@ class Bord {
   }
 
   public void frigiBord(int[] bordnummer) {
-    //Går gjennom bordnumrene gitt, sjekker om de er gyldige indekser og setter de lik null
+    //Gï¿½r gjennom bordnumrene gitt, sjekker om de er gyldige indekser og setter de lik null
     for (int i = 0; i < bordnummer.length ; i++) {
       if (bordnummer[i] >= 0 && bordnummer[i] < bordene.length) {
         bordene[bordnummer[i]] = null;

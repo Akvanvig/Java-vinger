@@ -1,5 +1,5 @@
 /*
-	Øving 1
+	Ã˜ving 1
 	11.02.2018
 	Anders Kvanvig
 */

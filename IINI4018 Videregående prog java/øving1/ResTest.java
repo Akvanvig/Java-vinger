@@ -1,5 +1,5 @@
 /*
-	Øving 1
+	Ã˜ving 1
 	11.02.2018
 	Anders Kvanvig
 */
@@ -10,14 +10,14 @@ class ResTest {
     String[] muligheter = {"Reserver Bord", "Finn Bordnummer", "Frigi Bord", "Skriv Ut Bord", "Beregn alder", "Avslutt"};
     boolean avslutt = false;
     String navn = showInputDialog("Hva heter restauranten?");
-    //Kunne på disse to lagt inn en test for om tall ble ført inn
-    int etbAar  = Integer.parseInt(showInputDialog("I hvilket år ble restauranten etablert?"));
+    //Kunne pï¿½ disse to lagt inn en test for om tall ble fï¿½rt inn
+    int etbAar  = Integer.parseInt(showInputDialog("I hvilket ï¿½r ble restauranten etablert?"));
     int antBord = Integer.parseInt(showInputDialog("Hvor mange bord har restaranten?"));
 
     Restaurant res = new Restaurant(navn, etbAar, antBord);
 
     do {
-      int valg = showOptionDialog(null, "Hva ønsker du å gjøre?" , res.getNavn() + " etablert i " + res.getEtbAar(), DEFAULT_OPTION, PLAIN_MESSAGE, null, muligheter, muligheter[0]);
+      int valg = showOptionDialog(null, "Hva ï¿½nsker du ï¿½ gjï¿½re?" , res.getNavn() + " etablert i " + res.getEtbAar(), DEFAULT_OPTION, PLAIN_MESSAGE, null, muligheter, muligheter[0]);
       System.out.println(valg);
       switch (valg) {
         case 0: //Reserver et gitt antall bord
@@ -28,13 +28,13 @@ class ResTest {
             showMessageDialog(null, antallBord + " bord er reservert under navnet " + resNavn);
           }
           else {
-            showMessageDialog(null, "Ikke nok ledige bord \n Det er for øyeblikket " + res.antLedige() + " bord ledig.", "Varsel", WARNING_MESSAGE);
+            showMessageDialog(null, "Ikke nok ledige bord \n Det er for ï¿½yeblikket " + res.antLedige() + " bord ledig.", "Varsel", WARNING_MESSAGE);
           }
           break;
 
         case 1: //Finn reserverte bordnummer
-          int[] resBord = res.getReservasjoner(showInputDialog("Hvilket navn er bordene reservert på?"));
-          String respons = "De følgende bordene er reservert på dette navnet: \n";
+          int[] resBord = res.getReservasjoner(showInputDialog("Hvilket navn er bordene reservert pï¿½?"));
+          String respons = "De fï¿½lgende bordene er reservert pï¿½ dette navnet: \n";
           boolean forste = true;
           for (int bord:resBord) {
             if (forste) {
@@ -50,7 +50,7 @@ class ResTest {
           break;
 
         case 2: //Frigi bord
-          String bord = showInputDialog("Skriv inn bord du ønsker å frigi (Separer bordnummer med komma, ingen andre tegn.)");
+          String bord = showInputDialog("Skriv inn bord du ï¿½nsker ï¿½ frigi (Separer bordnummer med komma, ingen andre tegn.)");
           String[] bordeneStr = bord.split(",");
           int[] bordeneInt = new int[bordeneStr.length];
           try {
@@ -61,7 +61,7 @@ class ResTest {
             showMessageDialog(null, "Bordene har blitt frigjort");
           }
           catch (NumberFormatException nfe) {
-            showMessageDialog(null, "Bordnummer må skrives inn på formatet '1,3,4,2'");
+            showMessageDialog(null, "Bordnummer mï¿½ skrives inn pï¿½ formatet '1,3,4,2'");
           }
           break;
 
@@ -80,7 +80,7 @@ class ResTest {
           break;
 
         case 4: //Beregn restaurantens alder
-          showMessageDialog(null, res.getNavn() + " ble etablert i år " + res.getEtbAar() + ", dermed er den i år " + res.getAlder() + " år gammel.");
+          showMessageDialog(null, res.getNavn() + " ble etablert i ï¿½r " + res.getEtbAar() + ", dermed er den i ï¿½r " + res.getAlder() + " ï¿½r gammel.");
           break;
 
         case 5: //Avslutt program
