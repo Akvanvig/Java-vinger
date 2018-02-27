@@ -11,8 +11,8 @@ class OppgaveOversikt {
   public boolean regNyStudent(String navn) {
     boolean elevRegistrert = true;
     //Sjekker om eleven er registrert tidligere
-    for (Student elev:studenter) {
-      if (elev.getNavn().equals(navn)) {
+    for (int i = 0; i < antStud; i++) {
+      if (studenter[i].getNavn().equals(navn)) {
         elevRegistrert = false;
       }
     }
@@ -66,8 +66,8 @@ class OppgaveOversikt {
 
   public String toString() {
     String resultat = "";
-    for (Student elev : studenter) {
-      resultat += elev.getNavn() + " - " + elev.getAntOppg() + ",   ";
+    for (int i=0; i<antStud;i++) {
+      resultat += studenter[i].getNavn() + " - " + studenter[i].getAntOppg() + ",   ";
     }
     return resultat;
   }
