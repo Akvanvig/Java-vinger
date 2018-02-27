@@ -1,6 +1,6 @@
 /*
-	Øving 1
-	11.02.2018
+	Øving 2
+	27.02.2018
 	Anders Kvanvig
 */
 
@@ -8,6 +8,7 @@ class Student {
   private final String navn;
   private int antOppg;
 
+  //Konstruktør for å opprette objektet
   public Student(String navn) {
     this.navn = navn;
   }

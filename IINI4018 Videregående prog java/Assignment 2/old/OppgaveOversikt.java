@@ -1,6 +1,6 @@
 /*
-	Øving 1
-	11.02.2018
+	Øving 2
+	27.02.2018
 	Anders Kvanvig
 */
 
