@@ -21,23 +21,42 @@ class Resultat implements Serializable {
         }
         return resultat;
     }
+
+    //Brukes for å skriver ut noe mer ryddig
+    public String[] getText() {
+
+        String tekstKarakterer = "";
+        for (int i = 0; i < karakterer.length; i++) {
+            if (i == 0) {
+                tekstKarakterer += karakterer[i];
+            }
+            else {
+                tekstKarakterer += ", " + karakterer[i];
+            }
+        }
+        String[] resultat = {fagNr, fagNavn, "" + antStudiepoeng, tekstKarakterer};
+
+        return resultat;
+    }
 }
 
 class Filhandtering {
     private ArrayList<Resultat> resultater = new ArrayList<Resultat>();
-    private String filSti;
 
-    public Filhandtering(String filSti) {
-        this.filSti = filSti;
-    }
-
+    //Lese fra csv-fil (txt)
     public void lesFraFil() {
         try {
             String linje;
-            FileReader filLeser = new FileReader(filSti  + "\\resultat.txt");
+            InputStreamReader filLeser = new InputStreamReader( new FileInputStream("resultat.txt"), "UTF-8");
             BufferedReader bufretLeser = new BufferedReader(filLeser);
+            boolean forsteLinje = true; //Brukes for å fjerne et ekstra spørsmålstegn som dukker opp
+
             //Leser ei linje av gangen, og splitter opp på komma
             while((linje = bufretLeser.readLine()) != null) {
+                if (forsteLinje) {
+                    linje = linje.substring(1);
+                    forsteLinje = false;
+                }
                 String[] data = linje.split(",");
                 char[] karakterer = new char[data.length - 3];
                 //Henter ut karakterer i faget
@@ -50,32 +69,40 @@ class Filhandtering {
             bufretLeser.close();
         }
         catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file \"" + filSti + "\"");
+            System.out.println("Unable to open file ");
         }
         catch(IOException ex) {
-            System.out.println("Error reading file \"" + filSti + "\"");
+            System.out.println("Error reading file ");
         }
     }
 
-    public void serialiser() {
-        /*
+    //Skrive til Serialisert fil
+    public void serialiseringTilFil() {
         try {
-            FileOutputStream filUt = new FileOutputStream("resultater.ser");
-            ObjectOutputStream oos = new ObjectOutputStream(filUt);
-            oos.writeObject(resultater);
-            oos.close();
-            filUt.close();
+            ObjectOutputStream utStrom = new ObjectOutputStream(new FileOutputStream("resultater.ser"));
+            utStrom.writeObject(resultater);
+            utStrom.close();
         }
-        catch(IOException ex) {
-            System.out.println(ex);
+        catch (IOException ex) {
             ex.printStackTrace();
         }
-        */
-        try{
-            // Serialize data object to a file
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filSti + "\\resultater.ser"));
-            out.writeObject(resultater);
-            out.close();
+    }
+
+    //Lese fra serialisert fil
+    public void lesSerialisertFil() {
+        try {
+            ObjectInputStream innStrom = new ObjectInputStream(new FileInputStream("resultater.ser"));
+            try {
+                while (true) {
+                    resultater = (ArrayList<Resultat>)innStrom.readObject();
+                }
+            }
+            catch (EOFException ex) {
+            }
+            catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            innStrom.close();
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -84,14 +111,28 @@ class Filhandtering {
 
     public void printResultat() {
         for (Resultat fag : resultater) {
-            System.out.println(fag.toString());
+            System.out.println(fag);
+        }
+        System.out.println("");
+    }
+
+    public void printRes() {
+        System.out.printf("%-15s  %-30s %-10s  %-30s%n", "Fagkode", "Fagnavn", "Studpoeng", "Karakterer");
+        for (Resultat fag:resultater) {
+            String[] tekst = fag.getText();
+            System.out.printf("%-15s  %-30s %-10s  %-30s%n", tekst[0], tekst[1], tekst[2], tekst[3]);
         }
     }
 
+    //Testprogram
+    //Leser fra original .txt-fil, lagrer til eget Resultat-objekt og skriver dette objektet til ei serialisert fil.
+    //Dette leses så og skrives til bruker
     public static void main(String args[]) {
-        Filhandtering fil = new Filhandtering(args[0]);
+        Filhandtering fil = new Filhandtering();
         fil.lesFraFil();
         fil.printResultat();
-        fil.serialiser();
+        fil.serialiseringTilFil();
+        fil.lesSerialisertFil();
+        fil.printRes();
     }
 }
