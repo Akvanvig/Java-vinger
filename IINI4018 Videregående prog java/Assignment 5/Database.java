@@ -19,7 +19,7 @@ class DbKobling{
             Class.forName(dbDriver);
         }
         catch (Exception e) {
-            System.out.println("feil :)");
+            System.out.println(e);
         }
     }
 
