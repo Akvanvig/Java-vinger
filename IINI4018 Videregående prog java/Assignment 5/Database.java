@@ -5,6 +5,7 @@
 */
 
 import java.sql.*;
+import static javax.swing.JOptionPane.*;
 
 class DbKobling{
     private String dbNavn;
@@ -78,7 +79,10 @@ class DbKobling{
 class DBTest {
     public static void main(String args[]) {
         //test DbKobling
-        DbKobling test = new DbKobling("andekva", "HPLc157c");
+        String brukernavn = showInputDialog("Hva er brukernavnet?")
+        String passord = showInputDialog("Hva er passordet?")
+
+        DbKobling test = new DbKobling(brukernavn.trim(), passord.trim());
         try {
             test.testDbKobling();
         }
