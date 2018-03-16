@@ -1,3 +1,9 @@
+/*
+	Øving 4
+	10.03.2018
+	Anders Kvanvig
+*/
+
 import java.util.*;
 import java.io.*;
 
