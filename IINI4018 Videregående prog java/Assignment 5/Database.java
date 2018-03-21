@@ -7,12 +7,12 @@
 import java.sql.*;
 import static javax.swing.JOptionPane.*;
 
-class DbKobling{
+public class DbKobling {
     private String dbNavn;
     private String dbDriver;
 
     //Oppretter Streng for å kommunisere med databasen
-    public DbKobling(String brukernavn, String passord){
+    public DbKobling(String brukernavn, String passord) {
         dbDriver = "com.mysql.jdbc.Driver";
         dbNavn = "jdbc:mysql://mysql.stud.iie.ntnu.no:3306/" + brukernavn + "?user=" + brukernavn + "&password=" + passord + "&autoReconnect=true&useSSL=false";
         try {
@@ -23,14 +23,14 @@ class DbKobling{
         }
     }
 
-    public void testDbKobling() throws SQLException{
+    public void testDbKobling() throws SQLException {
         Connection forbindelse = DriverManager.getConnection(dbNavn);
         forbindelse.close();
     }
 
 
     //Oppgave b
-    public String[] hentBokInfo(String isbn) throws Exception{
+    public String[] hentBokInfo(String isbn) throws Exception {
         //Kjører en liten sjekk for å verifisere isbn-koden
         if (isbn.length() != 13 || isbn.length() - isbn.replace("-", "").length() != 3) {
             throw new Exception("Ugyldig isbn-kode");
@@ -85,8 +85,7 @@ class DBTest {
         DbKobling test = new DbKobling(brukernavn.trim(), passord.trim());
         try {
             test.testDbKobling();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Kan ikke koble til database");
         }
 
@@ -95,7 +94,7 @@ class DBTest {
         //Test hent hentBokInfo()
         String[] testIsbn = {"0-201-50998-X", "kk", "4-442-36435-3"};
         for (int i = 0; i<3;i++) {
-            try{
+            try {
                 String[] temp = test.hentBokInfo(testIsbn[i]);
                 if (temp[0] != null) {
                     System.out.println("Tittel: " + temp[0] + "\nForfatter: " + temp[1] + "\nAntall: " + temp[2]);
@@ -103,8 +102,7 @@ class DBTest {
                 else {
                     System.out.println("Ingen bøker ved gitt navn");
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e + "isbn");
             }
         }
@@ -116,8 +114,7 @@ class DBTest {
         for (int i = 0; i < 3; i++) {
             try {
                 System.out.println(test.regLaanetaker(testreg[0][i], testreg[1][i], 1));
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e);
             }
         }
