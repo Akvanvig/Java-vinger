@@ -22,7 +22,7 @@ class Resultat implements Serializable {
 
     public String toString() {
         String resultat = fagNr + ",\t" + fagNavn + ",\t\t" + antStudiepoeng;
-        for (char karakter: karakterer) {
+        for (char karakter : karakterer) {
             resultat += ",\t" + karakter;
         }
         return resultat;
@@ -40,7 +40,7 @@ class Resultat implements Serializable {
                 tekstKarakterer += ", " + karakterer[i];
             }
         }
-        String[] resultat = {fagNr, fagNavn, "" + antStudiepoeng, tekstKarakterer};
+        String[] resultat = {fagNr, fagNavn, Integer.toString(antStudiepoeng), tekstKarakterer};
 
         return resultat;
     }
@@ -53,7 +53,7 @@ class Filhandtering {
     public void lesFraFil() {
         try {
             String linje;
-            InputStreamReader filLeser = new InputStreamReader( new FileInputStream("resultat.txt"), "UTF-8");
+            InputStreamReader filLeser = new InputStreamReader(new FileInputStream("resultat.txt"), "UTF-8");
             BufferedReader bufretLeser = new BufferedReader(filLeser);
             boolean forsteLinje = true; //Brukes for å fjerne et ekstra spørsmålstegn som dukker opp
 
@@ -73,11 +73,9 @@ class Filhandtering {
                 resultater.add(new Resultat(data[0], data[1], Integer.parseInt(data[2]), karakterer));
             }
             bufretLeser.close();
-        }
-        catch(FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) {
             System.out.println("Unable to open file ");
-        }
-        catch(IOException ex) {
+        } catch (IOException ex) {
             System.out.println("Error reading file ");
         }
     }
@@ -88,8 +86,7 @@ class Filhandtering {
             ObjectOutputStream utStrom = new ObjectOutputStream(new FileOutputStream("resultater.ser"));
             utStrom.writeObject(resultater);
             utStrom.close();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -102,15 +99,13 @@ class Filhandtering {
                 while (true) {
                     resultater = (ArrayList<Resultat>)innStrom.readObject();
                 }
-            }
-            catch (EOFException ex) {
-            }
-            catch (Exception ex) {
+            } catch (EOFException ex) {
+
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
             innStrom.close();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -124,7 +119,7 @@ class Filhandtering {
 
     public void printRes() {
         System.out.printf("%-15s  %-30s %-10s  %-30s%n", "Fagkode", "Fagnavn", "Studpoeng", "Karakterer");
-        for (Resultat fag:resultater) {
+        for (Resultat fag : resultater) {
             String[] tekst = fag.getText();
             System.out.printf("%-15s  %-30s %-10s  %-30s%n", tekst[0], tekst[1], tekst[2], tekst[3]);
         }
