@@ -1,7 +1,12 @@
-
+/*
+	Øving 8
+	13.04.2018
+	Anders Kvanvig
+*/
 import java.util.*;
+import java.io.*;
 
-abstract class Tribune {
+abstract class Tribune implements Comparable<Tribune>, Serializable {
     private final String tribunenavn;
     private final int kapasitet;
     private final int pris;
@@ -24,6 +29,10 @@ abstract class Tribune {
         return tribunenavn;
     }
 
+    public String toString() {
+        return tribunenavn + " kapasitet: " + kapasitet + " antall solgte billetter: " + finnAntallSolgteBilletter() + " inntjening: " + finnInntekt();
+    }
+
     public abstract int finnAntallSolgteBilletter();
 
     public int finnInntekt() {
@@ -33,6 +42,11 @@ abstract class Tribune {
     public abstract Billett[] kjopBilletter(int antBilletter);
 
     public abstract Billett[] kjopBilletter(String[] navnPers);
+
+    //Brukes for å sortere
+    public int compareTo(Tribune t2) {
+        return finnInntekt() - t2.finnInntekt();
+    }
 }
 
 class Staa extends Tribune {
@@ -55,8 +69,7 @@ class Staa extends Tribune {
             }
             antSolgteBilletter += antBilletter;
             return billetter.toArray(new Billett[antBilletter]);
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -108,8 +121,9 @@ class Sitte extends Tribune {
 class VIP extends Tribune {
     private String[][] tilskuer; // tabellstørrelse: antall rader * antall plasser pr rad
 
-    public VIP(String tribunenavn, int kapasitet, int pris, int antRader, int antPlasserPrRad) {
+    public VIP(String tribunenavn, int kapasitet, int pris, int antRader) {
         super(tribunenavn, kapasitet, pris);
+        int antPlasserPrRad = (int) kapasitet / antRader;
         tilskuer = new String[antRader][antPlasserPrRad];
     }
 
@@ -117,7 +131,7 @@ class VIP extends Tribune {
         int solgt = 0;
         for (String[] rad : tilskuer) {
             for (String sete : rad) {
-                if (!sete.equals(null)) {
+                if (sete != null) {
                     solgt++;
                 }
             }
@@ -133,11 +147,10 @@ class VIP extends Tribune {
         int antPers = navnPers.length;
         for (int i = 0; i < tilskuer.length; i++) {    //Tribunen fra bunnen, rad for rad, og fyller hver rad fra en kant for å gjøre ting enkelt.
             for (int j = 0; j < tilskuer[i].length; j++) {
-                if (tilskuer[i][j].equals(null)) {
+                if (tilskuer[i][j] == null) {
                     if (tilskuer[i].length <= (j + antPers)) {  //Hvis det er flere personer enn ledige seter på raden, går søket til neste rad
                         break;
-                    }
-                    else {  //Ellers opprettes billetter, og setene markeres som fyllt
+                    } else {  //Ellers opprettes billetter, og setene markeres som fyllt
                         ArrayList<Billett> billetter = new ArrayList<Billett>();
                         for (int k = 0; k < antPers; k++) {
                             billetter.add(new SitteplassBillett(getTribunenavn(), getPris(), i, (j + k)));

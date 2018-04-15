@@ -1,18 +1,18 @@
 /**
  * Klassen Billett med subklasser - 2010-01-18
- * Denne blir delt ut sammen med øvingen
+ * Denne blir delt ut sammen med ï¿½vingen
  */
 abstract class Billett {
   private final String tribunenavn;
   private final int pris;
 
   /**
-   * Konstruktør:
-   * Tribunenavn må oppgis. Ingen krav til pris.
+   * Konstruktï¿½r:
+   * Tribunenavn mï¿½ oppgis. Ingen krav til pris.
    */
   public Billett(String tribunenavn, int pris) {
     if (tribunenavn == null || tribunenavn.trim().equals("")) {
-      throw new IllegalArgumentException("Tribunenavn må oppgis.");
+      throw new IllegalArgumentException("Tribunenavn mï¿½ oppgis.");
     }
     this.tribunenavn = tribunenavn.trim();
     this.pris = pris;
@@ -31,8 +31,8 @@ abstract class Billett {
   }
 }
 
-/**
- * Ståplassbilletter.
+/*
+ * Stï¿½plassbilletter.
  */
 class StaaplassBillett extends Billett {
   public StaaplassBillett(String tribunenavn, int pris) {
@@ -41,7 +41,7 @@ class StaaplassBillett extends Billett {
 }
 
 /**
- * Sitteplassbilletter. Rad og plass på raden må oppgis.
+ * Sitteplassbilletter. Rad og plass pï¿½ raden mï¿½ oppgis.
  */
 class SitteplassBillett extends Billett {
   private final int rad;
@@ -50,7 +50,7 @@ class SitteplassBillett extends Billett {
   public SitteplassBillett(String tribunenavn, int pris, int rad, int plass) {
     super(tribunenavn, pris);
     if (rad < 0 || plass < 0) {
-      throw new IllegalArgumentException("Verken rad eller plass kan være negativ.\n"
+      throw new IllegalArgumentException("Verken rad eller plass kan vï¿½re negativ.\n"
                                                            + "Oppgitte verdier: " + rad + ", " + plass);
     }
     this.rad = rad;
