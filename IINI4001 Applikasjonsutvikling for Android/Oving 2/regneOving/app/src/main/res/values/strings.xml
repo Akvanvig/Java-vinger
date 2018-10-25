@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">regneOving</string>
+    <string name="pluss">Adder</string>
+    <string name="gange">Multiplikasjon</string>
+    <string name="svar">Svar:</string>
+    <string name="grense">Øvre grense:</string>
+    <string name="riktig">Riktig!</string>
+    <string name="feil">Feil. Riktig svar er </string>
+</resources>
