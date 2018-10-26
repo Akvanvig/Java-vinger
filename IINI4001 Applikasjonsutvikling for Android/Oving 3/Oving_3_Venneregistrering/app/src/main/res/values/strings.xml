@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Oving_3_Venneregistrering</string>
+    <string name="navn">Navn: </string>
+    <string name="fodselsdato">Fødselsdato: </string>
+    <string name="legg_till">Legg til</string>
+    <string name="datoformat">dd/mm/åååå</string>
+</resources>
