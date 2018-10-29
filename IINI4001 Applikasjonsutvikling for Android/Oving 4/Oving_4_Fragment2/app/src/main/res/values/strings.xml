@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Øving 4 Fragment</string>
+    <string name="neste">Neste</string>
+    <string name="forrige">Forrige</string>
+    <string name="fjell">Fjell</string>
+    <string name="fjellb">Fjell er en større landskapsformasjon, en landskapstype eller geografisk område.</string>
+    <string name="bil">Bil</string>
+    <string name="bilb">En bil er en motorvogn som kjører på minst tre, oftest fire, hjul og er beregnet til å kjøres på vei, ikke på skinner, og frakter passasjerer eller gods.</string>
+    <string name="hus">Hus</string>
+    <string name="husb">Et hus er en frittstående, permanent konstruksjon, som brukes til bosted, lagring eller lokalitet for ulike typer aktiviteter.</string>
+    <string name="neptun">Neptun</string>
+    <string name="neptunb">Neptun er den åttende og ytterste planeten i solsystemet regnet fra solen, og den eneste planeten det er umulig å se fra jorden med det blotte øyet.</string>
+    <array name="bildenavn">
+        <item>@string/fjell</item>
+        <item>@string/bil</item>
+        <item>@string/hus</item>
+        <item>@string/neptun</item>
+    </array>
+    <array name="bildebeskrivelse">
+        <item>@string/fjellb</item>
+        <item>@string/bilb</item>
+        <item>@string/husb</item>
+        <item>@string/neptunb</item>
+    </array>
+    <array name="bilder">
+        <item>@drawable/fjell</item>
+        <item>@drawable/bil</item>
+        <item>@drawable/hus</item>
+        <item>@drawable/neptun</item>
+    </array>
+</resources>
