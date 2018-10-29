@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gjett tallet</string>
+    <string name="navn">Navn </string>
+    <string name="kortnummer">Kortnummer </string>
+    <string name="navnFormat">Ola Normann</string>
+    <string name="kortNrFormat">0123 4567 8910 1112</string>
+    <string name="send">Send</string>
+    <string name="restart">Start på nytt</string>
+    <string name="tallHint">Tall mellom 1 og 10</string>
+</resources>
