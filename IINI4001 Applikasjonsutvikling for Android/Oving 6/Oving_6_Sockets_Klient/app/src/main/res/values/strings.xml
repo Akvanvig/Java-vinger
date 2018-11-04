@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Summering via nettverk</string>
+    <string name="tall1">Tall 1</string>
+    <string name="tall2">Tall 2</string>
+    <string name="beregn">Beregn</string>
+    <string name="hjelpApp">Skriv inn ett heltall i hver av feltene og klikk beregn for å finne summen av disse</string>
+</resources>

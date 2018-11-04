@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Books</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_bakgrunnsfarge">Velg Bakgrunnsfarge</string>
+    <string name="key_bakgrunnsfarge">key_bakgrunnsfarge</string>
+    <string name="summary_bakgrunnsfarge">Velg bakgrunnsfarge for appen</string>
+
+    <string name="vis_titler">Vis alle Titler</string>
+    <string name="vis_forfattere">Vis alle Forfattere</string>
+</resources>

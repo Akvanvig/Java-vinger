@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Settings">
+        <ListPreference
+            android:defaultValue="black"
+            android:dialogTitle="@string/title_bakgrunnsfarge"
+            android:entries="@array/pref_tema_navn"
+            android:entryValues="@array/pref_tema_verdi"
+            android:key="@string/key_bakgrunnsfarge"
+            android:summary="@string/summary_bakgrunnsfarge"
+            android:title="@string/title_bakgrunnsfarge"/>
+    </PreferenceCategory>
+</PreferenceScreen>

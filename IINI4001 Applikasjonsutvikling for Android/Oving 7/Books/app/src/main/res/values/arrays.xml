@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_tema_navn">
+        <item>Tema 1</item>
+        <item>Tema 2</item>
+        <item>Tema 3</item>
+    </string-array>
+    <string-array name="pref_tema_verdi">
+        <item>black</item>
+        <item>blue</item>
+        <item>green</item>
+        <item>gray</item>
+    </string-array>
+</resources>
