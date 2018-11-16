@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <PreferenceCategory
+        android:title="Game settings">
+        <ListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/settingsTitle_wordlist"
+            android:entries="@array/pref_wordlist_name"
+            android:entryValues="@array/pref_wordlist_value"
+            android:key="@string/key_wordlist"
+            android:summary="@string/settingsSummary_wordlist"
+            android:title="@string/settingsTitle_wordlist"/>
+        <ListPreference
+            android:defaultValue="Easy"
+            android:dialogTitle="@string/settingsTitle_difficulty"
+            android:entries="@array/pref_difficulty_name"
+            android:entryValues="@array/pref_difficulty_value"
+            android:key="@string/key_difficulty"
+            android:summary="@string/settingsSummary_difficulty"
+            android:title="@string/settingsTitle_difficulty"/>
+    </PreferenceCategory>
+</PreferenceScreen>

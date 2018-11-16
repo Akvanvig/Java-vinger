@@ -1,0 +1,4 @@
+bench
+window
+wall
+dog

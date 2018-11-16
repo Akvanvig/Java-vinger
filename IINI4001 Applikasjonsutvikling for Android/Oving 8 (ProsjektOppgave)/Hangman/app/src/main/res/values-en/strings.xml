@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Hangman</string>
+
+    <!-- Hovedmeny -->
+    <string name="mainMenu_start">Start New Game</string>
+    <string name="mainMenu_settings">Settings</string>
+    <string name="mainMenu_about">About</string>
+    <string name="mainMenu_stats">Stats</string>
+    <string name="stats_total">The total number of games played:</string>
+    <string name="stats_win">The number of wins:</string>
+    <string name="stats_lost">The number of losses:</string>
+    <string name="stats_percetWin">The percentage of games resulting in win:</string>
+    <string name="about_text">Hangman is a game consisting of two parties, one that chooses a word, and one that guesses letters from the word.\n\n
+        Here you are playing the guesser, and guess one letter at a time by pressing the letter-buttons on the lower half of the screen.\n\n
+        When either the word is fully guessed or the drawing has been finished, the game is over. \n\n
+        To change wordlist, or set a harder difficulty, go to the gamesettings.
+    </string>
+    <string name="ok">OK</string>
+
+    <!-- ActionBar meny -->
+    <string name="action_settings">Settings</string>
+    <string name="action_about">About</string>
+    <string name="action_close">Close</string>
+
+    <!-- Preference Menu -->
+    <string name="settingsTitle_wordlist">Wordlist</string>
+    <string name="settingsTitle_difficulty">Difficulty</string>
+    <string name="settingsTitle_language">Språk</string>
+    <string name="settingsTitle_resetStats">Reset Stats</string>
+    <string name="settingsSummary_wordlist">Category of words to choose from</string>
+    <string name="settingsSummary_difficulty">Difficulty of the Hangman game</string>
+    <string name="prefHeader_gameSettings_title">Game Settings</string>
+    <string name="prefHeader_gameSettings_summary">Settings changing the behavior of the game</string>
+    <string name="prefHeader_other_title">Other</string>
+    <string name="prefHeader_other_summary">Other settings related to the app</string>
+
+    <!-- keys -->
+    <string name="key_difficulty" translatable="false">key_difficulty</string>
+    <string name="key_resetStats" translatable="false">key_resetStats</string>
+    <string name="key_wordlist" translatable="false">key_wordlist</string>
+    <string name="key_winCount" translatable="false">key_winCount</string>
+    <string name="key_totalCount" translatable="false">key_totalCount</string>
+
+    <!-- Statistikk -->
+    <string name="confirm">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="settingsSummary_resetStats">Resets all app statistics</string>
+    <string name="statsReset">The Statistics have been reset</string>
+    <string name="changeLanguage">To change language, go to systemsettings</string>
+
+    <!-- Spilltekst -->
+    <string name="end_victory">Congratulations, you guessed the word!</string>
+    <string name="end_loss">"You have failed, the word was: "</string>
+    <string name="replay">New Game</string>
+    <string name="mainmenu">Main Menu</string>
+    <string name="noNewWords">You have played with all words in this list this game, go back to main menu to restart this list, or choose new wordlist</string>
+</resources>

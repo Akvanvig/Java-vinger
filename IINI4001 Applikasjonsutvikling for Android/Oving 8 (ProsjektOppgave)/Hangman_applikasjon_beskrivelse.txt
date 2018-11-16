@@ -1,0 +1,74 @@
+﻿Hangman applikasjonen består av to aktiviteter, en for hovedmenyen og en for selve spillet.
+
+Spillet er tilgjengelig på to forskjellige språk, norsk og engelsk (Engelsk er også satt som standard, men da med mer nøytralt flagg)
+Spillets språk baseres på systeminnstillinger, en må derfor endre språk på enheten for å endre språk i appen.
+
+Instillinger blir satt i et eget preference-fragment
+	De tilgjengelige innstillingene er fordelt på to undermenyer.
+		Den ene er spillmeny hvor ord-kategorier og vanskelighetsgrad (antall mulige feil) kan velges. 
+		Den andre undermenyen er kalt Annet, og inneholder for øyeblikket bare nullstill Statistikk.
+
+Spillet går sin gang ved å vente på brukers klikk, for så å utføre sjekker, og oppdatere gui for bruker.
+Tester/Handlinger som gjennomføres ved klikk er:
+	checkLetter(char)
+		Sjekker om en bokstav er i det gitte ordet
+	adapter.letterGuessed(int, boolean)
+		Sjekker om bokstaven er gjettet tidligere, og noterer i adapteret hvilken farge knappen skal få (riktig = grønn/galt = rødt)
+	
+	updateStrikes()
+		Oppdaterer hvor mange feil (feilscore) bruker har fått, dette varierer basert på vansklighetsgrad.
+	drawWord()
+		Tegner opp Bokstavene, og placeholderne for bokstavene som ikke er gjettet ved hjelp av char[] wordLetters, og boolean[] showletters. 
+		Se getBooleanLetters() for bedre beskrivelse hvordan dette skrives ut.
+	checkWord()
+		Sjekker om alle bokstavene i ordet er gjettet av bruker.
+		Hvis bruker har vunnet, blir dette gitt beskjed om her gjennom prosessen endGame
+	drawHangman()
+		Bestemmer hvilket bilde som skal vises for bruker.
+	checkStrikes()
+		Sjekker om bruker har tapt basert på antall feil (feilscore), om dette har skjedd, vil bruker bli gitt beskjed om dette gjennom endGame prosessen.
+
+Ved Oppstart vil det kjøres visse spesielle funksjoner:
+	importWordlist()
+		Henter inn ordliste basert på hvilken som er valgt i preference (standard = 0, kort-test). 
+		Det er 7 tilgjengelige lister, hvor de alle er oversatt til de forskjellige språkene hvor dette er nødvendig.
+	pickWord()
+		Velger ett tilfeldig ord fra ordlisten
+	getLetters()
+		Henter inn alfabetet til det angitte språket fra arrays.xml.
+	getBooleanLetters(char[])
+		Tar inn det valgte ordet, og setter for hvert enkelt tegn true eller false i en array for om bruker skal gjette på ordet.
+		Alle bokstaver bruker har tilgjenglig i sitt alfabet vil det gjettes på.
+		Dette betyr at "Oslo" vil ved oppstart vises som "_ _ _ _", og "Washington D.C." som "_ _ _ _ _ _ _ _ _ _   _ . _ ." (merk. mellomrom og punktum skrevet fra før).
+	getDifficulty()
+		Henter vanskelighetsgrad fra preference (0, Enkelt er standard).
+		Enkelt gir +1 pr. feil
+		Middels gir +2 pr. feil
+		Vanskelig gir +5 pr. feil
+	drawHangman()
+		Se beskrivelse over
+	 drawWord()
+		Se beskrivelse over
+	drawUI()
+		Tegner opp alfabetet som blir brukt i en gridview, og setter onClick på hver enkelt TextView.
+	
+Det er også en funksjon for ny runde innebygd i spillet, denne vil komme opp når bruker er ferdig med en runde (Både tap og seier).
+Når denne kjøres, vil strikes (feilscore) nullstilles, og de fleste av oppstartsfunksjonenene kjøres (alle unntatt importWordlist, og getLetters). 
+Dette betyr at vanskelighetgrad kan oppdateres undervies i spillet fra innstillingsmenyen, men språk og ordliste vil ikke kunne importeres på nytt. 
+For å gjøre dette må en tilbake i hovedmenyen, for så å starte nytt spill.
+
+Når en starter ny runde vil det huskes på hvilke ord en har hatt tidligere i prevWordlist, og disse vil ikke komme igjen før en går tilbake til hovedmenyen, og nullstiller Aktiviteten helt.
+
+Ved hver endte runde vil brukers statistikk oppdateres i preference i nøklene key_winCount, og key_totalCount. Annen statistikk for bruker vil så regnes ut og vises til bruker i hovedmenyen.
+
+
+På alle sider i spillet kan en finne en "Om spillet"-knapp (Enten som knapp i hovedmeny, eller i ActionBar OptionMenu) som forteller det grunnleggende om spillet.
+På denne menyen kan en også finne en direktelink til PreferenceActivity (innstillingsmeny), og en avsluttknapp for å stoppe alle aktiviteter.
+
+Klassen LetterAdapter er en lett modifisert versjon av klassen ArrayAdapter<String>.
+I denne klassen er getView(...) endret, for å skrive ut TextViews med gitte farger. I tillegg til dette er det lagt til en ny funksjon: letterGuessed(...), som tar inn en gitt bokstav, og 
+en boolean som indekerer om den er i ordet.
+
+Klassen AppCompatPreferenceActivity er en klasse importert fra 
+	https://chromium.googlesource.com/android_tools/+/7200281446186c7192cb02f54dc2b38e02d705e5/sdk/extras/android/support/samples/Support7Demos/src/com/example/android/supportv7/app/AppCompatPreferenceActivity.java
+Denne ble importert for å få inn en ActionBar på Preferencemenyen i spillet.

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <PreferenceCategory
+        android:title="Other">
+        <Preference
+            android:key="@string/key_resetStats"
+            android:title="@string/settingsTitle_resetStats"
+            android:summary="@string/settingsSummary_resetStats" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

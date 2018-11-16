@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <header
+        android:fragment="com.example.hangman.HangmanPreferenceActivity$GameSettingsPreferenceFragment"
+        android:title="@string/prefHeader_gameSettings_title"
+        android:summary="@string/prefHeader_gameSettings_summary" />
+    <header
+        android:fragment="com.example.hangman.HangmanPreferenceActivity$OthersPreferenceFragment"
+        android:title="@string/prefHeader_other_title"
+        android:summary="@string/prefHeader_other_summary" />
+
+
+</preference-headers>

@@ -1,0 +1,4 @@
+skjerm
+tastatur
+høyttaler
+prosessor

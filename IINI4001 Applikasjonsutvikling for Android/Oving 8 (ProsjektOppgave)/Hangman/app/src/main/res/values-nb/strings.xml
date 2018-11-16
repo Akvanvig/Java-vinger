@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Hangman</string>
+
+    <string name="mainMenu_start">Start nytt spill</string>
+    <string name="mainMenu_settings">Innstillinger</string>
+    <string name="mainMenu_about">Om spillet</string>
+    <string name="mainMenu_stats">Statistikk</string>
+    <string name="stats_total">Antall runder spilt:</string>
+    <string name="stats_win">Antall runder vunnet:</string>
+    <string name="stats_lost">Antall runder tapt:</string>
+    <string name="stats_percetWin">Prosent vunnet</string>
+    <string name="about_text">Hangman er et spill som består av to parter, en som velger et ord og en som skal gjette på bokstavene i dette ordet.\n\n
+        I dette spillet er det du som gjetter, dette gjøres ved hjelp av bokstav-knappene på nedre del av spillskjermen.\n\n
+        Når hele ordet er gjettet eller tegningen er ferdig, er spillet over.\n\n
+        For å endre ordliste eller spille på en vanskeligere vanskelighetsgrad, gå til spillinnstillinger.
+    </string>
+    <string name="ok">OK</string>
+
+
+    <string name="action_settings">Innstillinger</string>
+    <string name="action_about">Om spillet</string>
+    <string name="action_close">Avslutt</string>
+
+
+    <string name="settingsTitle_wordlist">Ordliste</string>
+    <string name="settingsTitle_difficulty">Vanskelighetsgrad</string>
+    <string name="settingsTitle_language">Language</string>
+    <string name="settingsTitle_resetStats">Nullstill Statistikk</string>
+    <string name="settingsSummary_difficulty">Vanskelighetgraden i spillet</string>
+    <string name="settingsSummary_wordlist">Kategori ord skal velges fra</string>
+    <string name="prefHeader_gameSettings_title">Spillinnstillinger</string>
+    <string name="prefHeader_gameSettings_summary">Instillinger som endrer spillfunksjoner</string>
+    <string name="prefHeader_other_summary">Andre innstillinger knyttet til appen</string>
+    <string name="prefHeader_other_title">Andre</string>
+
+
+    <string name="confirm">Godta</string>
+    <string name="cancel">Avbryt</string>
+    <string name="settingsSummary_resetStats">Nullstiller appstatistikk</string>
+    <string name="statsReset">Statestikker har blitt nullstilt</string>
+    <string name="changeLanguage">For å bytte språk, gå til systeminnstillinger</string>
+
+
+    <string name="end_victory">Gratulerer, du har vunnet!</string>
+    <string name="end_loss">"Du har tapt, ordet var: "</string>
+    <string name="mainmenu">Hovedmeny</string>
+    <string name="replay">Start på nytt</string>
+    <string name="noNewWords">Du har spilt med alle ordene i denne ordlisten denne sesjonen, gå tilbake til hovedmenyen og start på nytt, eller velg ny ordliste.</string>
+
+</resources>
